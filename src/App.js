@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles/App.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faCoffee, faMoon } from "@fortawesome/free-solid-svg-icons";
+import Header from "./components/Header";
+import Main from "./components/Main";
+
+library.add(faCoffee, faMoon);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Main />
     </div>
   );
 }
