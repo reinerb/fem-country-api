@@ -1,0 +1,17 @@
+.CountryCard {
+  overflow: hidden;
+  width: 300px;
+  height: 350px;
+  border-radius: 0.5rem;
+}
+
+.CountryCard.light {
+  background-color: var(--clr-light-mode-elements);
+}
+
+.CountryCard.dark {
+  background-color: var(--clr-dark-mode-elements);
+}
+
+.CountryCard-body {
+}

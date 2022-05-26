@@ -3,6 +3,7 @@ import axios from "axios";
 import { v4 as uuid } from "uuid";
 import Header from "./Header";
 import CountryList from "./CountryList";
+import "../styles/CountryApp.css";
 
 class CountryApp extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class CountryApp extends Component {
     this.state = { countries: Object(), darkMode: false };
 
     this.getCountries = this.getCountries.bind(this);
+    this.toggleDarkMode = this.toggleDarkMode.bind(this);
   }
 
   async getCountries() {
@@ -44,15 +46,27 @@ class CountryApp extends Component {
     this.setState({ countries: countries });
   }
 
+  toggleDarkMode() {
+    this.setState({ darkMode: !this.state.darkMode });
+  }
+
   async componentDidMount() {
     await this.getCountries();
   }
 
   render() {
     return (
-      <div className="CountryApp">
-        <Header darkMode={this.state.darkMode} />
-        <CountryList countries={this.state.countries} />
+      <div className={`CountryApp ${this.state.darkMode ? "dark" : "light"}`}>
+        <Header
+          darkMode={this.state.darkMode}
+          toggleDarkMode={this.toggleDarkMode}
+        />
+        <div className="CountryApp-body">
+          <CountryList
+            countries={this.state.countries}
+            darkMode={this.state.darkMode}
+          />
+        </div>
       </div>
     );
   }

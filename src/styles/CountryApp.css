@@ -1,0 +1,9 @@
+.CountryApp.light {
+  background-color: var(--clr-light-mode-bg);
+  color: var(--clr-light-mode-text);
+}
+
+.CountryApp.dark {
+  background-color: var(--clr-dark-mode-bg);
+  color: var(--clr-dark-mode-text);
+}
