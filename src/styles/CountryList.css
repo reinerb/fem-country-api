@@ -3,17 +3,25 @@
   max-width: 1440px;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(var(--columns), fit-content);
-  justify-content: space-around;
+  grid-template-columns: repeat(var(--columns), auto);
+  gap: 2rem;
+  justify-content: space-evenly;
+  align-items: space-evenly;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 700px) {
   .CountryList {
     --columns: 2;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1000px) {
+  .CountryList {
+    --columns: 3;
+  }
+}
+
+@media screen and (min-width: 1400px) {
   .CountryList {
     --columns: 4;
   }

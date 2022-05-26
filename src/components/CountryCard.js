@@ -11,9 +11,15 @@ class CountryCard extends Component {
         <div className="CountryCard-body">
           <h2 className="CountryCard-title">{name}</h2>
           <div className="CountryCard-vitals">
-            <p>Population: {population}</p>
-            <p>Region: {region}</p>
-            <p>Capital: {capital}</p>
+            <p>
+              <span className="bold-font">Population:</span> {population}
+            </p>
+            <p>
+              <span className="bold-font">Region:</span> {region}
+            </p>
+            <p>
+              <span className="bold-font">Capital:</span> {capital}
+            </p>
           </div>
         </div>
       </div>

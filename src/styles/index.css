@@ -3,4 +3,14 @@
 body {
   min-height: 100vh;
   font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+}
+
+/* utility classes */
+.bold-font {
+  font-weight: 600;
+}
+
+.bolder-font {
+  font-weight: 800;
 }
