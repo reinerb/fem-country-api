@@ -1,0 +1,8 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--clr-light-mode-bg);
+  box-shadow: 0 0 1rem var(--clr-light-mode-input);
+}
