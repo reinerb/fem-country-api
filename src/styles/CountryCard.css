@@ -13,6 +13,21 @@
   background-color: var(--clr-dark-mode-elements);
 }
 
+.CountryCard-title {
+  font-size: 18px;
+}
+
 .CountryCard-body {
+  margin: 1rem;
+  font-size: 14px;
+}
+
+.CountryCard-vitals {
   margin-top: 1rem;
+}
+
+.CountryCard-flag {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
 }
