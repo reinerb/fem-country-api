@@ -7,10 +7,12 @@
 
 .CountryCard.light {
   background-color: var(--clr-light-mode-elements);
+  box-shadow: 0 0 0.5rem var(--clr-light-mode-input);
 }
 
 .CountryCard.dark {
   background-color: var(--clr-dark-mode-elements);
+  box-shadow: 0 0 0.5rem var(--clr-light-mode-text);
 }
 
 .CountryCard-title {

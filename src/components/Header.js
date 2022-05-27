@@ -21,12 +21,13 @@ class Header extends Component {
 
   render() {
     const modeSwitch = (
-      <div className="mode-toggle" onClick={this.handleClick}>
+      <div className="mode-toggle bold-font" onClick={this.handleClick}>
         {this.props.darkMode ? (
           <FontAwesomeIcon icon="sun" />
         ) : (
           <FontAwesomeIcon icon="moon" />
         )}
+        {this.props.darkMode ? "Light Mode" : "Dark Mode"}
       </div>
     );
     return (

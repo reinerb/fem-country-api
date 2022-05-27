@@ -9,7 +9,10 @@ class CountryApp extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { countries: Object(), darkMode: false };
+    this.state = {
+      countries: Object(),
+      darkMode: JSON.parse(window.localStorage.getItem("darkMode")) || false,
+    };
 
     this.getCountries = this.getCountries.bind(this);
     this.toggleDarkMode = this.toggleDarkMode.bind(this);
@@ -47,7 +50,12 @@ class CountryApp extends Component {
   }
 
   toggleDarkMode() {
-    this.setState({ darkMode: !this.state.darkMode });
+    this.setState({ darkMode: !this.state.darkMode }, () => {
+      window.localStorage.setItem(
+        "darkMode",
+        JSON.stringify(this.state.darkMode)
+      );
+    });
   }
 
   async componentDidMount() {
