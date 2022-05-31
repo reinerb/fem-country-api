@@ -12,7 +12,8 @@ class CountryCard extends Component {
           <h2 className="CountryCard-title">{name}</h2>
           <div className="CountryCard-vitals">
             <p>
-              <span className="bold-font">Population:</span> {population}
+              <span className="bold-font">Population:</span>{" "}
+              {population.toLocaleString()}
             </p>
             <p>
               <span className="bold-font">Region:</span> {region}
