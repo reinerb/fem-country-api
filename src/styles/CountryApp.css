@@ -1,3 +1,7 @@
+.CountryApp {
+  min-height: 100vh;
+}
+
 .CountryApp.light {
   background-color: var(--clr-light-mode-bg);
   color: var(--clr-light-mode-text);
@@ -6,4 +10,13 @@
 .CountryApp.dark {
   background-color: var(--clr-dark-mode-bg);
   color: var(--clr-dark-mode-text);
+}
+
+.CountryApp-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1440px;
+  margin: auto;
+  margin-top: 2rem;
 }

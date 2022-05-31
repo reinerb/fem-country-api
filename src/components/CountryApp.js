@@ -3,7 +3,9 @@ import axios from "axios";
 import { v4 as uuid } from "uuid";
 import Header from "./Header";
 import CountryList from "./CountryList";
+import RegionFilter from "./RegionFilter";
 import "../styles/CountryApp.css";
+import CountrySearch from "./CountrySearch";
 
 class CountryApp extends Component {
   constructor(props) {
@@ -11,11 +13,15 @@ class CountryApp extends Component {
 
     this.state = {
       countries: Object(),
+      activeCountries: Object(),
+      regions: [],
       darkMode: JSON.parse(window.localStorage.getItem("darkMode")) || false,
     };
 
     this.getCountries = this.getCountries.bind(this);
     this.toggleDarkMode = this.toggleDarkMode.bind(this);
+    this.filterNames = this.filterNames.bind(this);
+    this.filterRegions = this.filterRegions.bind(this);
   }
 
   async getCountries() {
@@ -25,6 +31,7 @@ class CountryApp extends Component {
     });
 
     let countries = {};
+    let regions = new Set();
 
     countriesImport.data.forEach((c) => {
       let country = {
@@ -43,10 +50,15 @@ class CountryApp extends Component {
         borders: c.borders ? c.borders : "none",
       };
 
+      regions.add(c.region);
       countries[c.cca3] = country;
     });
 
-    this.setState({ countries: countries });
+    this.setState({
+      countries: countries,
+      activeCountries: countries,
+      regions: Array.from(regions),
+    });
   }
 
   toggleDarkMode() {
@@ -62,6 +74,31 @@ class CountryApp extends Component {
     await this.getCountries();
   }
 
+  filterNames(query) {
+    const { countries } = this.state;
+
+    let nowActive = Object.entries(countries).filter(([key, value]) =>
+      value.name.toLowerCase().includes(query.toLowerCase())
+    );
+
+    this.setState({ activeCountries: Object.fromEntries(nowActive) });
+  }
+
+  filterRegions(query) {
+    if (!query || query === "all") {
+      this.setState({ activeCountries: this.state.countries });
+      return;
+    }
+
+    const { countries } = this.state;
+
+    let nowActive = Object.entries(countries).filter(
+      ([key, value]) => value.region === query
+    );
+
+    this.setState({ activeCountries: Object.fromEntries(nowActive) });
+  }
+
   render() {
     return (
       <div className={`CountryApp ${this.state.darkMode ? "dark" : "light"}`}>
@@ -70,8 +107,19 @@ class CountryApp extends Component {
           toggleDarkMode={this.toggleDarkMode}
         />
         <div className="CountryApp-body">
+          <div className="CountryApp-filters">
+            <CountrySearch
+              darkMode={this.state.darkMode}
+              filter={this.filterNames}
+            />
+            <RegionFilter
+              darkMode={this.state.darkMode}
+              regions={this.state.regions}
+              filter={this.filterRegions}
+            />
+          </div>
           <CountryList
-            countries={this.state.countries}
+            countries={this.state.activeCountries}
             darkMode={this.state.darkMode}
           />
         </div>
