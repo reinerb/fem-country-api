@@ -1,0 +1,34 @@
+.CountrySearch {
+  width: 30%;
+  display: flex;
+  gap: 0.5ch;
+  align-items: center;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+}
+
+.CountrySearch.dark {
+  background-color: var(--clr-dark-mode-elements);
+}
+
+.CountrySearch.light {
+  background-color: var(--clr-light-mode-elements);
+  box-shadow: 0 0 0.5rem var(--clr-light-mode-input);
+}
+
+.CountrySearch-field {
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  color: inherit;
+}
+
+.dark .CountrySearch-field::placeholder {
+  color: var(--clr-dark-mode-text);
+}
+
+.light .CountrySearch-field::placeholder {
+  color: var(--clr-light-mode-input);
+}
