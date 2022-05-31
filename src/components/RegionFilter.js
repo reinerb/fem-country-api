@@ -3,6 +3,58 @@ import Select from "react-select";
 import "../styles/RegionFilter.css";
 
 class RegionFilter extends Component {
+  static defaultProps = {
+    lightModeStyles: {
+      menu: (provided) => ({
+        ...provided,
+        backgroundColor: "var(--clr-light-mode-elements)",
+        color: "inherit",
+        outline: "none",
+      }),
+      control: (provided) => ({
+        ...provided,
+        backgroundColor: "var(--clr-light-mode-elements)",
+        color: "var(--clr-light-mode-input)",
+      }),
+      input: (provided) => ({
+        ...provided,
+        color: "var(--clr-light-mode-text)",
+      }),
+      option: (provided, state) => ({
+        ...provided,
+        backgroundColor: state.isFocused
+          ? "var(--clr-light-mode-input)"
+          : "transparent",
+        color: state.isFocused
+          ? "var(--clr-dark-mode-text)"
+          : "var(--clr-light-mode-text)",
+      }),
+    },
+    darkModeStyles: {
+      menu: (provided) => ({
+        ...provided,
+        backgroundColor: "var(--clr-dark-mode-elements)",
+        color: "inherit",
+        outline: "none",
+      }),
+      control: (provided) => ({
+        ...provided,
+        backgroundColor: "var(--clr-dark-mode-elements)",
+        color: "var(--clr-dark-mode-text)",
+      }),
+      input: (provided) => ({
+        ...provided,
+        color: "var(--clr-dark-mode-text)",
+      }),
+      option: (provided, state) => ({
+        ...provided,
+        backgroundColor: state.isFocused
+          ? "var(--clr-dark-mode-bg)"
+          : "transparent",
+      }),
+    },
+  };
+
   constructor(props) {
     super(props);
 
@@ -28,6 +80,12 @@ class RegionFilter extends Component {
 
     return (
       <Select
+        className="RegionFilter"
+        styles={
+          this.props.darkMode
+            ? this.props.darkModeStyles
+            : this.props.lightModeStyles
+        }
         value={this.state.value}
         onChange={this.handleChange}
         options={options}

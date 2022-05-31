@@ -14,9 +14,19 @@
 
 .CountryApp-filters {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
   align-items: center;
   max-width: 1440px;
   margin: auto;
   margin-top: 2rem;
+}
+
+@media screen and (min-width: 1000px) {
+  .CountryApp-filters {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
 }

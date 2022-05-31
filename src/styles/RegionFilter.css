@@ -1,17 +1,3 @@
 .RegionFilter {
-  border: none;
-  outline: none;
-  padding: 0.5rem 1rem;
-  color: inherit;
-  font-family: inherit;
-  border-radius: 0.25rem;
-}
-
-.RegionFilter.dark {
-  background-color: var(--clr-dark-mode-elements);
-}
-
-.RegionFilter.light {
-  background-color: var(--clr-light-mode-elements);
-  box-shadow: 0 0 0.5rem var(--clr-light-mode-input);
+  width: 35ch;
 }

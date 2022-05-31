@@ -1,5 +1,5 @@
 .CountrySearch {
-  width: 30%;
+  width: 50ch;
   display: flex;
   gap: 0.5ch;
   align-items: center;
@@ -23,6 +23,7 @@
   background: transparent;
   font-family: inherit;
   color: inherit;
+  width: 100%;
 }
 
 .dark .CountrySearch-field::placeholder {
