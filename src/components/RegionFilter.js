@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Select from "react-select";
+import "../styles/RegionFilter.css";
 
 class RegionFilter extends Component {
   constructor(props) {
@@ -11,33 +13,26 @@ class RegionFilter extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({ value: e.target.value }, () =>
+  handleChange(v) {
+    console.log(v.value);
+    this.setState({ value: v.value }, () =>
       this.props.filter(this.state.value)
     );
   }
 
   render() {
-    const regionOptions = this.props.regions.map((region) => {
-      return (
-        <option key={region} value={region}>
-          {region}
-        </option>
-      );
+    const options = this.props.regions.map((r) => {
+      return { value: r, label: r };
     });
+    options.push({ value: "all", label: "All" });
 
     return (
-      <select
-        name="Regions"
+      <Select
         value={this.state.value}
         onChange={this.handleChange}
-      >
-        <option value="" disabled>
-          Filter by Region
-        </option>
-        {regionOptions}
-        <option value="all">All regions</option>
-      </select>
+        options={options}
+        placeholder="Filter by Region"
+      />
     );
   }
 }
