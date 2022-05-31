@@ -12,7 +12,16 @@
   color: var(--clr-dark-mode-text);
 }
 
+.CountryApp-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-inline: 1rem;
+}
+
 .CountryApp-filters {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,6 +30,7 @@
   max-width: 1440px;
   margin: auto;
   margin-top: 2rem;
+  margin-inline: 1rem;
 }
 
 @media screen and (min-width: 1000px) {

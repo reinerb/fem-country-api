@@ -1,5 +1,6 @@
 .CountrySearch {
-  width: 50ch;
+  width: 90%;
+  max-width: 50ch;
   display: flex;
   gap: 0.5ch;
   align-items: center;
