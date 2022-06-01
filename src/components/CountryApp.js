@@ -22,6 +22,7 @@ class CountryApp extends Component {
     this.toggleDarkMode = this.toggleDarkMode.bind(this);
     this.filterNames = this.filterNames.bind(this);
     this.filterRegions = this.filterRegions.bind(this);
+    this.getBorderNames = this.getBorderNames.bind(this);
   }
 
   async getCountries() {
@@ -47,7 +48,7 @@ class CountryApp extends Component {
         population: c.population,
         flag: c.flags.png,
         languages: c.languages,
-        borders: c.borders ? c.borders : "none",
+        borders: c.borders ? c.borders : [],
       };
 
       regions.add(c.region);
@@ -99,6 +100,18 @@ class CountryApp extends Component {
     this.setState({ activeCountries: Object.fromEntries(nowActive) });
   }
 
+  getBorderNames(cca3) {
+    const borderCountriesList = this.state.countries[cca3].borders;
+
+    let borderCountries = {};
+
+    borderCountriesList.forEach((cc) => {
+      borderCountries[cc] = this.state.countries[cc].name;
+    });
+
+    return borderCountries;
+  }
+
   render() {
     const countryGrid = (
       <CountryGrid
@@ -118,6 +131,7 @@ class CountryApp extends Component {
           <CountryDetail
             darkMode={this.state.darkMode}
             country={this.state.countries[e]}
+            borders={this.getBorderNames(e)}
           />
         }
       />

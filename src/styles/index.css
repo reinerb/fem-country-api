@@ -14,3 +14,9 @@ body {
 .bolder-font {
   font-weight: 800;
 }
+
+a {
+  text-decoration: none;
+  font-family: inherit;
+  color: inherit;
+}
