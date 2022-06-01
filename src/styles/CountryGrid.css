@@ -1,0 +1,28 @@
+.CountryGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-inline: 1rem;
+}
+
+.CountryGrid-filters {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  max-width: 1440px;
+  margin: auto;
+  margin-top: 2rem;
+  margin-inline: 1rem;
+}
+
+@media screen and (min-width: 1000px) {
+  .CountryGrid-filters {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}

@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
 import Header from "./Header";
-import CountryList from "./CountryList";
-import RegionFilter from "./RegionFilter";
+import CountryGrid from "./CountryGrid";
 import "../styles/CountryApp.css";
-import CountrySearch from "./CountrySearch";
 
 class CountryApp extends Component {
   constructor(props) {
@@ -106,23 +104,13 @@ class CountryApp extends Component {
           darkMode={this.state.darkMode}
           toggleDarkMode={this.toggleDarkMode}
         />
-        <div className="CountryApp-body">
-          <div className="CountryApp-filters">
-            <CountrySearch
-              darkMode={this.state.darkMode}
-              filter={this.filterNames}
-            />
-            <RegionFilter
-              darkMode={this.state.darkMode}
-              regions={this.state.regions}
-              filter={this.filterRegions}
-            />
-          </div>
-          <CountryList
-            countries={this.state.activeCountries}
-            darkMode={this.state.darkMode}
-          />
-        </div>
+        <CountryGrid
+          darkMode={this.state.darkMode}
+          countries={this.state.activeCountries}
+          regions={this.state.regions}
+          filterNames={this.filterNames}
+          filterRegions={this.filterRegions}
+        />
       </div>
     );
   }
