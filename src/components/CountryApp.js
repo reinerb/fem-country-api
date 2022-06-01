@@ -3,6 +3,8 @@ import axios from "axios";
 import { v4 as uuid } from "uuid";
 import Header from "./Header";
 import CountryGrid from "./CountryGrid";
+import CountryDetail from "./CountryDetail";
+import { Route, Routes } from "react-router-dom";
 import "../styles/CountryApp.css";
 
 class CountryApp extends Component {
@@ -98,19 +100,39 @@ class CountryApp extends Component {
   }
 
   render() {
+    const countryGrid = (
+      <CountryGrid
+        darkMode={this.state.darkMode}
+        countries={this.state.activeCountries}
+        regions={this.state.regions}
+        filterNames={this.filterNames}
+        filterRegions={this.filterRegions}
+      />
+    );
+
+    const countryRoutes = Object.keys(this.state.countries).map((e) => (
+      <Route
+        key={e}
+        path={`/${e}`}
+        element={
+          <CountryDetail
+            darkMode={this.state.darkMode}
+            country={this.state.countries[e]}
+          />
+        }
+      />
+    ));
+
     return (
       <div className={`CountryApp ${this.state.darkMode ? "dark" : "light"}`}>
         <Header
           darkMode={this.state.darkMode}
           toggleDarkMode={this.toggleDarkMode}
         />
-        <CountryGrid
-          darkMode={this.state.darkMode}
-          countries={this.state.activeCountries}
-          regions={this.state.regions}
-          filterNames={this.filterNames}
-          filterRegions={this.filterRegions}
-        />
+        <Routes>
+          <Route path="/" element={countryGrid} />
+          {countryRoutes}
+        </Routes>
       </div>
     );
   }
