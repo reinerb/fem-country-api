@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/fem-country-api/static/css/main.46bb4747.css",
-    "main.js": "/fem-country-api/static/js/main.199ec28e.js",
+    "main.js": "/fem-country-api/static/js/main.1fb7ce50.js",
     "index.html": "/fem-country-api/index.html",
     "main.46bb4747.css.map": "/fem-country-api/static/css/main.46bb4747.css.map",
-    "main.199ec28e.js.map": "/fem-country-api/static/js/main.199ec28e.js.map"
+    "main.1fb7ce50.js.map": "/fem-country-api/static/js/main.1fb7ce50.js.map"
   },
   "entrypoints": [
     "static/css/main.46bb4747.css",
-    "static/js/main.199ec28e.js"
+    "static/js/main.1fb7ce50.js"
   ]
 }
