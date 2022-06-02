@@ -1,7 +1,84 @@
 .CountryDetail {
+  width: 100%;
   max-width: 1440px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-inline: 1rem;
+  margin-block: 2rem;
+}
+
+.btn-back {
+  align-self: flex-start;
+  border-radius: 0.5rem;
+  padding: 0.25rem 2rem;
+  margin-inline: 2rem;
+}
+
+.btn-border-country {
+  padding: 0.5rem 1rem;
+}
+
+.btn-back.dark,
+.btn-border-country.dark {
+  background-color: var(--clr-dark-mode-elements);
+}
+
+.btn-back.light,
+.btn-border-country.light {
+  background-color: var(--clr-light-mode-elements);
+  box-shadow: 0rem 0rem 0.5rem var(--clr-light-mode-input);
+}
+
+.CountryDetail-flag {
+  width: auto;
+  height: auto;
+  max-width: 90%;
+  place-self: center;
+}
+
+.CountryDetail-body {
+  margin-block: 2rem;
+}
+
+.CountryDetail-vitals {
+  margin-inline: 2rem;
+}
+
+.CountryDetail-body,
+.CountryDetail-vitals {
+  --columns: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: 1rem;
+}
+
+.CountryDetail-body {
+  align-items: center;
+}
+
+@media screen and (min-width: 850px) {
+  .CountryDetail-body,
+  .CountryDetail-vitals {
+    --columns: 2;
+  }
+}
+
+.CountryDetail-name,
+.CountryDetail-borders {
+  grid-column: 1 / -1;
+}
+
+.CountryDetail-borders {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.CountryDetail-border-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }

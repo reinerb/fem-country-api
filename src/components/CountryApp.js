@@ -43,10 +43,10 @@ class CountryApp extends Component {
         region: c.region,
         subregion: c.subregion,
         capital: c.capital ? c.capital[0] : "none",
-        currencies: c.currencies,
-        topLevelDomains: c.tld,
+        currencies: c.currencies ? c.currencies : [],
+        topLevelDomains: c.tld ? c.tld : [],
         population: c.population,
-        flag: c.flags.png,
+        flag: c.flags.svg,
         languages: c.languages,
         borders: c.borders ? c.borders : [],
       };
@@ -143,10 +143,12 @@ class CountryApp extends Component {
           darkMode={this.state.darkMode}
           toggleDarkMode={this.toggleDarkMode}
         />
-        <Routes>
-          <Route path="/" element={countryGrid} />
-          {countryRoutes}
-        </Routes>
+        <div className="CountryApp-body">
+          <Routes>
+            <Route path="/" element={countryGrid} />
+            {countryRoutes}
+          </Routes>
+        </div>
       </div>
     );
   }
