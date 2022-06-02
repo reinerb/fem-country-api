@@ -47,7 +47,7 @@ class CountryApp extends Component {
         topLevelDomains: c.tld ? c.tld : [],
         population: c.population,
         flag: c.flags.svg,
-        languages: c.languages,
+        languages: c.languages ? c.languages : [],
         borders: c.borders ? c.borders : [],
       };
 
