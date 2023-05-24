@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   margin-inline: 1rem;
+  width: 302px;
 }
 
 .CountryGrid-filters {
@@ -19,10 +20,26 @@
   margin-inline: 1rem;
 }
 
-@media screen and (min-width: 1000px) {
+@media (min-width: 665px) {
+  .CountryGrid {
+    width: 604px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .CountryGrid {
+    width: 906px;
+  }
+
   .CountryGrid-filters {
     flex-direction: row;
     justify-content: space-between;
     gap: 1rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  .CountryGrid {
+    width: 1208px;
   }
 }
