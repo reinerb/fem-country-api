@@ -2,30 +2,28 @@
   --columns: 1;
   width: 100%;
   max-width: 1440px;
-  display: grid;
-  grid-template-columns: repeat(var(--columns), minmax(auto, 100%));
-  gap: 2rem;
-  justify-content: space-between;
-  justify-items: center;
-  align-items: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.6rem;
+  justify-content: start;
   margin-block: 2rem;
   margin-inline: 1rem;
 }
 
-@media screen and (min-width: 665px) {
+@media (min-width: 665px) {
   .CountryList {
     --columns: 2;
     grid-template-columns: repeat(var(--columns), auto);
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media (min-width: 1000px) {
   .CountryList {
     --columns: 3;
   }
 }
 
-@media screen and (min-width: 1300px) {
+@media (min-width: 1300px) {
   .CountryList {
     --columns: 4;
   }
